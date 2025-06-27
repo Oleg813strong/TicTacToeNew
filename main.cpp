@@ -5,19 +5,14 @@
 
 #include <iostream>
 #include <limits>
-#include <conio.h>
 #include <string>
 #include <vector>
 
-int main(){
-
+int main() {
     int menu = 0;
 
-    while (true)
-    {
-
-        if (menu == 0)
-        {
+    while (true) {
+        if (menu == 0) {
             std::cout << "     ~MENU~" << std::endl;
             std::cout << "1-Start the game" << std::endl;
             std::cout << "2-Parameters" << std::endl;
@@ -29,34 +24,32 @@ int main(){
 
             switch (select) {
                 case 1:
-                    menu += 1;
+                    menu = 1;
                     break;
                 case 2:
-                    menu += 2;
+                    menu = 2;
                     break;
                 case 3:
-                    menu += 3;
+                    menu = 3;
                     break;
                 case 4:
                     std::cout << "Completion of the program. Goodbye!" << std::endl;
                     return 0;
                 default:
-                    std::cin.clear(); 
-                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     std::cout << "Invalid input. Please enter a number from 1 to 4." << std::endl;
-                    continue;  
+                    continue;
             }
         }
 
-        if (menu == 1)
-        {
-            std::string player1;
-            std::string player2;
+        if (menu == 1) {
+            std::string player1, player2;
             int FieldSize;
 
-            std::cout << "Enter the name of the first player (cross):" << std::endl;
+            std::cout << "Enter the name of the first player (cross): ";
             std::cin >> player1;
-            std::cout << "Eenter the name of the second player (zero):" << std::endl;
+            std::cout << "Enter the name of the second player (zero): ";
             std::cin >> player2;
 
             while (true) {
@@ -70,7 +63,7 @@ int main(){
             for (int i = 0; i < FieldSize; i++) {
                 field[i] = new char[FieldSize];
                 for (int j = 0; j < FieldSize; j++) {
-                    field[i][j] = ' ';  
+                    field[i][j] = ' ';
                 }
             }
 
@@ -113,30 +106,27 @@ int main(){
 
                 currentPlayer = (currentPlayer == player1) ? player2 : player1;
                 currentSymbol = (currentSymbol == 'X') ? 'O' : 'X';
-
             }
-        }
 
-        if (menu == 2)
-        {
-            std::cout << "Exit to main menu - Esc" << std::endl;
-            break;
-        }
-
-        if (menu == 3)
-        {
-            std::cout << "3" << std::endl;
-            break;
-        }
-
-        while (true) {
-            char c = _getch();  
-            if (c == 27) {  
-                menu = 0;  
-                break;
+            for (int i = 0; i < FieldSize; i++) {
+                delete[] field[i];
             }
+            delete[] field;
+
+            menu = 0;
         }
 
+        if (menu == 2) {
+            std::cout << "Parameters section (example)..." << std::endl;
+            std::cout << "Returning to main menu...\n";
+            menu = 0;
+        }
+
+        if (menu == 3) {
+            std::cout << "Game history not implemented yet." << std::endl;
+            std::cout << "Returning to main menu...\n";
+            menu = 0;
+        }
     }
 
     return 0;
