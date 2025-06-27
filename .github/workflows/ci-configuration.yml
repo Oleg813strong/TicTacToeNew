@@ -23,7 +23,7 @@ jobs:
       run: |
         cmake --build build
 
-        - name: Run executable
+    - name: Run executable
       run: |
         cd build
         chmod +x tic_tac_toe
