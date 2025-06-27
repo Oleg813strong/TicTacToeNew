@@ -28,7 +28,9 @@ jobs:
           cd build
           cmake --build .
 
-      - name: Run executable
-        run: |
-          cd build
-          ./TicTacToe.exe
+          - name: Run executable
+      run: |
+        cd build
+        chmod +x TicTacToe
+        ./TicTacToe
+
