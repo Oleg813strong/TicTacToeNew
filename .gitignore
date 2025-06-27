@@ -1,4 +1,17 @@
+# Ігнорувати службові файли Visual Studio
+.vs/
+
+# Ігнорувати тимчасові файли CMake
 build/
-.vscode/*
-*.code-workspace
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ігнорувати виконувані файли
 *.exe
+
+# Ігнорувати налаштування VS Code
+.vscode/
+*.code-workspace
+
