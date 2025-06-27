@@ -1,4 +1,4 @@
-name: CI_SorokaOleg_Z21
+name: CI_SorokaOleg_Z21_final
 
 on:
   push:
